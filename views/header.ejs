@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Conexión MySQL y Node">
+    <meta name="author" content="Roberto">
+    <title>Almacen</title>
+	<script language="javascript" src="/stylesheets/jquery-2.1.4.min.js"></script>
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-success fixed-top">
+        <a class="navbar-brand" target="_blank" href="http://localhost:3000/productos"><h3>Almacen de electrodomesticos C.A</h3></a>
+        <button aria-label="Mostrar u ocultar menú" class="navbar-toggler" id="botonMenu" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>	
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="/productos"><h6>Ver Productos</h6></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/clientes"><h6>Ver Clientes</h6></a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" href="/proveedores"><h6>Ver Proveedores</h6></a>
+                </li>
+				<li class="nav-item">
+                    <a class="nav-link" href="/logout"><h6>Salir</h6></a>
+                </li>
+				 
+            </ul>
+        </div>
+    </nav>
+    <script type="text/javascript">
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            const menu = document.querySelector("#menu"),
+                botonMenu = document.querySelector("#botonMenu");
+            if (menu) {
+                botonMenu.addEventListener("click", () => menu.classList.toggle("show"));
+            }
+        });
+		
+		$(document).ready(function () {
+		     $('#filtrar').keyup(function () {
+
+                    var rex = new RegExp($(this).val(), 'i');
+                    $('.buscar tr').hide();
+                    $('.buscar tr').filter(function () {
+                        return rex.test($(this).text());
+                    }).show();
+
+                })
+		
+		});
+		
+    </script>
+	
+    <main role="main" class="container">
+        <div class="row">
