@@ -1,22 +1,25 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-var session = require('express-session');
-var app = express();
-
-app.set('port', process.env.PORT || 3000);
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
+let  dotenv = require('dotenv');
+dotenv.config();  
 
 
-var indexRouter = require('./routes/index');
-var productosRouter = require('./routes/productos');
-var clientesRouter = require('./routes/clientes');
-var proveedoresRouter = require('./routes/proveedores');
-var loginRouter = require('./routes/login');
-var registrarseRouter = require('./routes/registrarse');
-var logoutRouter = require('./routes/logout');
+let session = require('express-session');
+let app = express();
+
+app.set('port', process.env.PORT || 4000);
+
+
+let indexRouter = require('./routes/index');
+let productosRouter = require('./routes/productos'); 
+let clientesRouter = require('./routes/clientes');
+let proveedoresRouter = require('./routes/proveedores');
+let loginRouter = require('./routes/login');
+let registrarseRouter = require('./routes/registrarse');
+let logoutRouter = require('./routes/logout');
 
 
 
